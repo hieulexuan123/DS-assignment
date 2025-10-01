@@ -17,10 +17,35 @@ A REST API server is also provided and deployed in Docker on an Amazon EC2 insta
 
 ---
 
+## Evaluation results:
+
+| Metric            | ProtectAI | Jackhhao |
+| ----------------- | --------- | -------- |
+| Accuracy          | 0.889364  | 0.367620 |
+| Precision         | 0.490076  | 0.137879 |
+| Recall            | 0.691094  | 0.928244 |
+| F1                | 0.573480  | 0.240095 |
+| Average Precision | 0.607904  | 0.379445 |
+| ROC AUC           | 0.908239  | 0.780723 |
+
+---
+
+## Confusion matrices
+
+1. ProtectAI model
+
+![ProtectAI Confusion Matrix](images/protectai_cm.png)
+
+2. Jackhhao model
+
+![Jackhhao Confusion Matrix](images/jackhhao_cm.png)
+
+---
+
 ## Summary
 1. Which system I’d ship today and why
 
-I would ship the ProtectAI model. While its recall (0.69) is lower than Jackhhao’s (0.93), it offers a much better balance with precision (0.49 vs. 0.14). The Jackhhao model produces a large number of false positives (over 11k FPs), reducing the user experiences. ProtectAI, on the other hand, achieves stronger overall balance (ROC AUC = 0.91) and provides fewer false alarms, making it more practical and trustworthy in production.
+I would ship the ProtectAI model. While its recall (0.69) is lower than Jackhhao’s (0.93), it offers a much better balance with precision (0.49 vs. 0.14). The Jackhhao model produces a large number of false positives (over 11k FPs), reducing the user experiences. ProtectAI, on the other hand, achieves stronger overall balance (ROC AUC = 0.91), better F1 (0.57) and provides fewer false alarms, making it more practical and trustworthy in production.
 
 2. Concrete plan to reduce FNs without exploding FPs
 
